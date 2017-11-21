@@ -1,0 +1,16 @@
+package model;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Chat {
+
+    public void start(Stage primaryStage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("../view/chat.fxml"));
+        primaryStage.setTitle("ChatRoom");
+        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.show();
+    }
+}
