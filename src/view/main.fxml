@@ -11,9 +11,19 @@
       <ColumnConstraints />
    </columnConstraints>
    <children>
-      <TextField promptText="Введите IP адрес" GridPane.rowIndex="2" />
+      <TextField fx:id="textFieldNickname" promptText="Введите ник" />
+      <TextField fx:id="textFieldIP" promptText="Введите IP адрес" GridPane.rowIndex="2" />
+      <TextField fx:id="textFieldPort" promptText="Введите порт" GridPane.rowIndex="3" />
       <Button fx:id="buttonConnect" mnemonicParsing="false" onAction="#buttonConnectClick" prefHeight="31.0" prefWidth="186.0" text="Подключиться" GridPane.rowIndex="5" />
-      <Button mnemonicParsing="false" onAction="#buttonCreateClick" prefHeight="31.0" prefWidth="186.0" text="Создать" GridPane.rowIndex="6" />
-      <TextField promptText="Введите порт" GridPane.rowIndex="3" />
+      <Button fx:id="buttonCreate" mnemonicParsing="false" onAction="#buttonCreateClick" prefHeight="31.0" prefWidth="186.0" text="Создать" GridPane.rowIndex="6" />
    </children>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

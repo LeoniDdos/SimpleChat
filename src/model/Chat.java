@@ -1,5 +1,6 @@
 package model;
 
+import controller.CChat;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,10 +8,14 @@ import javafx.stage.Stage;
 
 public class Chat {
 
-    public void start(Stage primaryStage) throws Exception{
+    private CChat cChat = new CChat();
+
+    public void start(Stage primaryStage, String nickname) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../view/chat.fxml"));
         primaryStage.setTitle("ChatRoom");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.setScene(new Scene(root, 600, 600));
         primaryStage.show();
+
+        cChat.startChat(nickname);
     }
 }

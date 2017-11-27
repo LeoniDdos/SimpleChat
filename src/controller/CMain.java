@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import model.Chat;
 import javafx.event.ActionEvent;
 import model.Main;
@@ -12,6 +14,11 @@ public class CMain {
     private Main main = new Main();
     private Chat chat = new Chat();
 
+    public Button buttonConnect;
+    public Button buttonCreate;
+
+    public TextField textFieldNickname;
+
     public void setSocketInfo(ActionEvent actionEvent) {
 
     }
@@ -20,12 +27,13 @@ public class CMain {
         int port = 7755;
         try {
             ServerSocket ss = new ServerSocket(port); // создаем сокет сервера и привязываем его к вышеуказанному порту
-            System.out.println("Waiting for a client...");
+            System.out.println("Ждём собеседника");
+            //Засунуть в поток
             Socket socket = ss.accept(); // заставляем сервер ждать подключений и выводим сообщение когда кто-то связался с сервером
-            System.out.println("Got a client :) ... Finally, someone saw me through all the cover!");
+            System.out.println("Собеседник найден");
             System.out.println();
 
-            chat.start(main.getStage());
+            chat.start(main.getStage(), textFieldNickname.getText());
 
 //            // Берем входной и выходной потоки сокета, теперь можем получать и отсылать данные клиенту.
 //            InputStream sin = socket.getInputStream();
@@ -57,11 +65,12 @@ public class CMain {
 
         try {
             InetAddress ipAddress = InetAddress.getByName(address); // создаем объект который отображает вышеописанный IP-адрес.
-            System.out.println("Any of you heard of a socket with IP address " + address + " and port " + serverPort + "?");
+            System.out.println("Будем подключаться по IP: " + address + " и PORT: " + serverPort);
             Socket socket = new Socket(ipAddress, serverPort); // создаем сокет используя IP-адрес и порт сервера.
-            System.out.println("Yes! I just got hold of the program.");
+            System.out.println("Создали сокет");
+            System.out.println();
 
-            chat.start(main.getStage());
+            chat.start(main.getStage(), textFieldNickname.getText());
 
 //            // Берем входной и выходной потоки сокета, теперь можем получать и отсылать данные клиентом.
 //            InputStream sin = socket.getInputStream();
