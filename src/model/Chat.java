@@ -12,7 +12,7 @@ public class Chat {
 
     public void start(Stage primaryStage, String nickname) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../view/chat.fxml"));
-        primaryStage.setTitle("ChatRoom");
+        primaryStage.setTitle("Chat Room");
         primaryStage.setScene(new Scene(root, 600, 600));
         primaryStage.show();
 
